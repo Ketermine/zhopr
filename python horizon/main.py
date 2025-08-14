@@ -29,7 +29,9 @@ def filter_jobs(jobs, search_query, min_salary, job_type):
             pass 
 
     if job_type:
-        filtered = [job for job in filtered if job_type in job['job_type']]
+        filtered = [
+            job for job in filtered if job_type in job.get('job_type', [])
+        ]
         
     return filtered
 
